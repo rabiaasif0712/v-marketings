@@ -1,0 +1,776 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Settings | V Marketing Lahore</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .heading {
+      font-family: 'Playfair Display', serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+    }
+
+    .gold {
+      color: #D4AF37;
+    }
+
+    .sidebar {
+      background: #080808;
+      border-right: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .nav-item {
+      transition: 0.3s ease;
+    }
+
+    .nav-item:hover,
+    .nav-active {
+      background: rgba(212, 175, 55, 0.12);
+      color: #D4AF37;
+      transform: translateX(4px);
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .input {
+      width: 100%;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 10px;
+      padding: 13px 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input:focus {
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+    }
+
+    .btn-gold {
+      background: #D4AF37;
+      color: #050505;
+      transition: 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: #F5D76E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .section-title {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .toggle {
+      width: 48px;
+      height: 26px;
+      background: #333;
+      border-radius: 50px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: #aaa;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      transition: 0.3s;
+    }
+
+    .toggle.active {
+      background: #D4AF37;
+    }
+
+    .toggle.active::after {
+      left: 24px;
+      background: #050505;
+    }
+
+    .success-message {
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @media(max-width: 768px) {
+
+      .sidebar {
+        position: fixed;
+        left: -280px;
+        z-index: 50;
+        width: 260px;
+        transition: 0.3s;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .main-content {
+        margin-left: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar fixed top-0 left-0 h-screen w-64 p-5 z-40">
+
+    <div class="flex items-center justify-between mb-10">
+
+      <div>
+
+        <h1 class="heading text-2xl font-bold">
+          V <span class="gold">Marketing</span>
+        </h1>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Lahore • Admin Panel
+        </p>
+
+      </div>
+
+      <button onclick="closeSidebar()"
+              class="md:hidden text-gray-400 text-xl">
+        ✕
+      </button>
+
+    </div>
+
+
+    <nav class="space-y-2">
+
+      <a href="dashboard.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>▣</span>
+        Dashboard
+      </a>
+
+
+      <a href="inquiries.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>✉</span>
+        Inquiries
+      </a>
+
+
+      <a href="services.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>◆</span>
+        Services
+      </a>
+
+
+      <a href="team.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>♟</span>
+        Team Members
+      </a>
+
+
+      <a href="settings.html"
+         class="nav-item nav-active flex items-center gap-3 px-4 py-3 rounded-lg">
+        <span>⚙</span>
+        Settings
+      </a>
+
+
+      <div class="pt-6">
+
+        <a href="../index.html"
+           class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+          <span>↗</span>
+          View Website
+        </a>
+
+
+        <a href="login.html"
+           class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-red-400">
+          <span>⇥</span>
+          Logout
+        </a>
+
+      </div>
+
+    </nav>
+
+
+    <div class="absolute bottom-5 left-5 right-5">
+
+      <div class="border border-yellow-500/20 rounded-xl p-4">
+
+        <p class="text-xs text-gray-500">
+          Admin Panel
+        </p>
+
+        <p class="text-sm font-semibold mt-1">
+          V Marketing Lahore
+        </p>
+
+        <div class="flex items-center gap-2 mt-3">
+
+          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+
+          <span class="text-xs text-gray-500">
+            System Online
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- MAIN -->
+  <main class="main-content ml-64 min-h-screen">
+
+
+    <!-- TOPBAR -->
+    <header class="border-b border-white/10 px-6 md:px-8 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-4">
+
+        <button onclick="openSidebar()"
+                class="md:hidden text-2xl">
+          ☰
+        </button>
+
+        <div>
+
+          <h2 class="heading text-2xl md:text-3xl font-bold">
+            Settings
+          </h2>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Manage your website and admin preferences
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hidden sm:flex items-center gap-3">
+
+        <div class="w-9 h-9 rounded-full bg-yellow-500/10 flex items-center justify-center gold font-bold">
+          A
+        </div>
+
+        <div>
+
+          <p class="text-sm font-semibold">
+            Admin
+          </p>
+
+          <p class="text-xs text-gray-500">
+            Administrator
+          </p>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- CONTENT -->
+    <section class="p-6 md:p-8 max-w-5xl">
+
+
+      <!-- SUCCESS -->
+      <div id="successMessage"
+           class="success-message mb-6 bg-green-500/10 border border-green-500/20 text-green-400 rounded-xl px-5 py-4">
+
+        ✓ Settings saved successfully.
+
+      </div>
+
+
+
+      <!-- AGENCY INFORMATION -->
+      <div class="card rounded-2xl mb-7 overflow-hidden">
+
+        <div class="section-title px-6 md:px-8 py-5">
+
+          <h3 class="heading text-xl font-bold">
+            Agency Information
+          </h3>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Basic information about your agency
+          </p>
+
+        </div>
+
+
+        <div class="p-6 md:p-8">
+
+          <div class="grid md:grid-cols-2 gap-5">
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Agency Name
+              </label>
+
+              <input
+                id="agencyName"
+                type="text"
+                class="input mt-2"
+                value="V Marketing Lahore"
+              >
+
+            </div>
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Website
+              </label>
+
+              <input
+                id="website"
+                type="text"
+                class="input mt-2"
+                value="www.vmarketinglahore.com"
+              >
+
+            </div>
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Email Address
+              </label>
+
+              <input
+                id="agencyEmail"
+                type="email"
+                class="input mt-2"
+                value="hello@vmarketinglahore.com"
+              >
+
+            </div>
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Phone Number
+              </label>
+
+              <input
+                id="phone"
+                type="text"
+                class="input mt-2"
+                value="+92 300 1234567"
+              >
+
+            </div>
+
+
+            <div class="md:col-span-2">
+
+              <label class="text-sm text-gray-400">
+                Office Address
+              </label>
+
+              <textarea
+                id="address"
+                rows="3"
+                class="input mt-2"
+              >Lahore, Punjab, Pakistan</textarea>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SOCIAL MEDIA -->
+      <div class="card rounded-2xl mb-7 overflow-hidden">
+
+        <div class="section-title px-6 md:px-8 py-5">
+
+          <h3 class="heading text-xl font-bold">
+            Social Media
+          </h3>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Add your agency social media profiles
+          </p>
+
+        </div>
+
+
+        <div class="p-6 md:p-8 space-y-5">
+
+
+          <div>
+
+            <label class="text-sm text-gray-400">
+              Instagram
+            </label>
+
+            <input
+              id="instagram"
+              type="text"
+              class="input mt-2"
+              placeholder="https://instagram.com/yourpage"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label class="text-sm text-gray-400">
+              Facebook
+            </label>
+
+            <input
+              id="facebook"
+              type="text"
+              class="input mt-2"
+              placeholder="https://facebook.com/yourpage"
+            >
+
+          </div>
+
+
+          <div>
+
+            <label class="text-sm text-gray-400">
+              LinkedIn
+            </label>
+
+            <input
+              id="linkedin"
+              type="text"
+              class="input mt-2"
+              placeholder="https://linkedin.com/company/yourcompany"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- NOTIFICATIONS -->
+      <div class="card rounded-2xl mb-7 overflow-hidden">
+
+        <div class="section-title px-6 md:px-8 py-5">
+
+          <h3 class="heading text-xl font-bold">
+            Notifications
+          </h3>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Control admin notifications
+          </p>
+
+        </div>
+
+
+        <div class="p-6 md:p-8 space-y-6">
+
+
+          <div class="flex items-center justify-between gap-5">
+
+            <div>
+
+              <h4 class="font-semibold">
+                New Inquiry Notifications
+              </h4>
+
+              <p class="text-sm text-gray-500 mt-1">
+                Get notified when a new project inquiry arrives.
+              </p>
+
+            </div>
+
+
+            <div
+              id="inquiryToggle"
+              class="toggle active"
+              onclick="toggleSwitch(this)">
+            </div>
+
+          </div>
+
+
+          <div class="border-t border-white/5"></div>
+
+
+          <div class="flex items-center justify-between gap-5">
+
+            <div>
+
+              <h4 class="font-semibold">
+                Weekly Reports
+              </h4>
+
+              <p class="text-sm text-gray-500 mt-1">
+                Receive weekly performance summaries.
+              </p>
+
+            </div>
+
+
+            <div
+              id="reportToggle"
+              class="toggle"
+              onclick="toggleSwitch(this)">
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ADMIN ACCOUNT -->
+      <div class="card rounded-2xl mb-7 overflow-hidden">
+
+        <div class="section-title px-6 md:px-8 py-5">
+
+          <h3 class="heading text-xl font-bold">
+            Admin Account
+          </h3>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Manage administrator account details
+          </p>
+
+        </div>
+
+
+        <div class="p-6 md:p-8">
+
+
+          <div class="grid md:grid-cols-2 gap-5">
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Admin Name
+              </label>
+
+              <input
+                type="text"
+                class="input mt-2"
+                value="Administrator"
+              >
+
+            </div>
+
+
+            <div>
+
+              <label class="text-sm text-gray-400">
+                Admin Email
+              </label>
+
+              <input
+                type="email"
+                class="input mt-2"
+                value="admin@vmarketinglahore.com"
+              >
+
+            </div>
+
+
+          </div>
+
+
+          <div class="mt-6 p-5 rounded-xl bg-yellow-500/5 border border-yellow-500/10">
+
+            <div class="flex items-start gap-3">
+
+              <span class="gold text-xl">
+                🔒
+              </span>
+
+              <div>
+
+                <h4 class="font-semibold">
+                  Password Security
+                </h4>
+
+                <p class="text-sm text-gray-500 mt-1 leading-6">
+                  Password management will be connected with Supabase
+                  Authentication when the backend is added.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SAVE BUTTON -->
+      <div class="flex justify-end">
+
+        <button
+          onclick="saveSettings()"
+          class="btn-gold px-7 py-3 rounded-lg font-semibold">
+
+          Save Changes
+
+        </button>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 px-6 md:px-8 py-6 mt-10">
+
+      <div class="flex flex-col md:flex-row justify-between gap-3 text-sm text-gray-500">
+
+        <p>
+          © 2026 V Marketing Lahore. All rights reserved.
+        </p>
+
+        <p>
+          Admin Panel
+        </p>
+
+      </div>
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+
+    // MOBILE SIDEBAR
+
+    function openSidebar() {
+
+      document
+        .getElementById("sidebar")
+        .classList.add("open");
+
+    }
+
+
+    function closeSidebar() {
+
+      document
+        .getElementById("sidebar")
+        .classList.remove("open");
+
+    }
+
+
+
+    // TOGGLE
+
+    function toggleSwitch(element) {
+
+      element.classList.toggle("active");
+
+    }
+
+
+
+    // SAVE SETTINGS
+
+    function saveSettings() {
+
+      const message =
+        document.getElementById("successMessage");
+
+
+      message.classList.add("show");
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      setTimeout(() => {
+
+        message.classList.remove("show");
+
+      }, 3000);
+
+    }
+
+
+  </script>
+
+</body>
+</html>
+```

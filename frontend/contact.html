@@ -1,0 +1,854 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact Us | V Marketing Lahore</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Theme -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: "#D4AF37",
+              goldLight: "#F5D76E",
+              blackBg: "#050505",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #050505;
+        color: white;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Gold Gradient Text */
+
+      .gold-text {
+        background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Grid Background */
+
+      .grid-bg {
+        background-image: linear-gradient(
+            rgba(212, 175, 55, 0.06) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.06) 1px, transparent 1px);
+
+        background-size: 50px 50px;
+      }
+
+      /* Glow */
+
+      .glow {
+        box-shadow: 0 0 80px rgba(212, 175, 55, 0.15);
+      }
+
+      /* Scroll Reveal */
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Floating Animation */
+
+      .float {
+        animation: floating 4s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Shine Effect */
+
+      .shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine::after {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: -120%;
+
+        width: 70%;
+        height: 100%;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+
+        transform: skewX(-20deg);
+
+        transition: 0.8s;
+      }
+
+      .shine:hover::after {
+        left: 140%;
+      }
+
+      /* Input */
+
+      .contact-input {
+        width: 100%;
+
+        background: rgba(255, 255, 255, 0.03);
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-radius: 14px;
+
+        padding: 15px 17px;
+
+        outline: none;
+
+        color: white;
+
+        transition: 0.3s;
+      }
+
+      .contact-input::placeholder {
+        color: #6b7280;
+      }
+
+      .contact-input:focus {
+        border-color: #d4af37;
+
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+      }
+
+      textarea.contact-input {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      /* Contact Card Hover */
+
+      .contact-card {
+        transition: 0.35s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(212, 175, 55, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+                        NAVBAR
+===================================================== -->
+
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Logo -->
+
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-11 h-11 rounded-xl bg-gold text-black flex items-center justify-center font-black text-2xl shadow-lg"
+          >
+            V
+          </div>
+
+          <div>
+            <h1 class="font-extrabold tracking-[.2em]">V MARKETING</h1>
+
+            <p class="text-[10px] tracking-[.4em] text-gray-500">LAHORE</p>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="home.html" class="text-gray-300 hover:text-gold transition">
+            Home
+          </a>
+
+          <a href="about.html" class="text-gray-300 hover:text-gold transition">
+            About
+          </a>
+
+          <a
+            href="services.html"
+            class="text-gray-300 hover:text-gold transition"
+          >
+            Services
+          </a>
+
+          <a href="contact.html" class="text-gold"> Contact </a>
+
+          <a
+            href="contact.html"
+            class="bg-gold text-black px-6 py-3 rounded-full font-bold hover:bg-goldLight hover:scale-105 transition"
+          >
+            Let's Talk ↗
+          </a>
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+      </nav>
+
+      <!-- Mobile Menu -->
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-black border-t border-white/10 px-5 py-6"
+      >
+        <div class="flex flex-col gap-5">
+          <a href="index.html" class="text-gray-300 hover:text-gold"> Home </a>
+
+          <a href="about.html" class="text-gray-300 hover:text-gold"> About </a>
+
+          <a href="services.html" class="text-gray-300 hover:text-gold">
+            Services
+          </a>
+
+          <a href="contact.html" class="text-gold"> Contact </a>
+
+          <a
+            href="contact.html"
+            class="bg-gold text-black text-center py-3 rounded-full font-bold"
+          >
+            Let's Talk
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- =====================================================
+                    CONTACT HERO
+===================================================== -->
+
+    <section
+      class="min-h-[70vh] grid-bg flex items-center pt-32 pb-20 relative overflow-hidden"
+    >
+      <!-- Background Glow -->
+
+      <div
+        class="absolute w-96 h-96 bg-gold/10 rounded-full blur-[130px] -top-20 right-0"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 w-full">
+        <div class="max-w-4xl reveal">
+          <div
+            class="inline-flex border border-gold/30 bg-gold/5 text-gold px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase"
+          >
+            Let's Build Something Great
+          </div>
+
+          <h1
+            class="mt-7 text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight"
+          >
+            Ready to grow your
+
+            <span class="gold-text font-serif italic"> brand? </span>
+          </h1>
+
+          <p class="mt-7 text-lg md:text-xl text-gray-400 max-w-3xl leading-8">
+            Tell us about your business, your goals, and where you want to go
+            next. Let's create a marketing strategy that gets you there.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+                CONTACT SECTION
+===================================================== -->
+
+    <section class="py-24 bg-[#080808]">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-5 gap-12">
+        <!-- =================================================
+                        LEFT CONTENT
+        ================================================== -->
+
+        <div class="lg:col-span-2 reveal">
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Start A Conversation
+          </p>
+
+          <h2 class="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">
+            Let's turn your
+
+            <span class="gold-text"> ideas into growth. </span>
+          </h2>
+
+          <p class="mt-6 text-gray-400 leading-7">
+            Whether you're launching a new store, scaling an existing brand or
+            looking for better marketing performance, we'd love to hear from
+            you.
+          </p>
+
+          <!-- Contact Details -->
+
+          <div class="mt-10 space-y-5">
+            <!-- Email -->
+
+            <div
+              class="contact-card flex items-center gap-4 border border-white/10 rounded-2xl p-5"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold text-xl"
+              >
+                @
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Email</p>
+
+                <p class="font-semibold mt-1">hello@vmarketing.pk</p>
+              </div>
+            </div>
+
+            <!-- Phone -->
+
+            <div
+              class="contact-card flex items-center gap-4 border border-white/10 rounded-2xl p-5"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold text-xl"
+              >
+                ☎
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Call Us</p>
+
+                <p class="font-semibold mt-1">+92 300 1234567</p>
+              </div>
+            </div>
+
+            <!-- Location -->
+
+            <div
+              class="contact-card flex items-center gap-4 border border-white/10 rounded-2xl p-5"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold text-xl"
+              >
+                ⌖
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Location</p>
+
+                <p class="font-semibold mt-1">Lahore, Pakistan</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Note -->
+
+          <div class="mt-8 flex items-center gap-3 text-sm text-gray-500">
+            <span class="w-2 h-2 bg-gold rounded-full animate-pulse"> </span>
+
+            Usually replies within 24 hours
+          </div>
+        </div>
+
+        <!-- =================================================
+                        FORM
+        ================================================== -->
+
+        <div class="lg:col-span-3 reveal">
+          <div
+            class="glow rounded-[2rem] border border-gold/20 bg-white/[.03] p-5"
+          >
+            <div
+              class="rounded-[1.5rem] bg-[#0c0c0c] border border-white/10 p-7 md:p-9"
+            >
+              <!-- Form Heading -->
+
+              <div class="flex justify-between items-start gap-5">
+                <div>
+                  <p
+                    class="text-gold text-xs uppercase tracking-[.25em] font-bold"
+                  >
+                    Project Inquiry
+                  </p>
+
+                  <h3 class="text-2xl md:text-3xl font-bold mt-3">
+                    Tell us about your project
+                  </h3>
+                </div>
+
+                <div
+                  class="hidden sm:flex w-12 h-12 rounded-full bg-gold text-black items-center justify-center font-bold text-xl"
+                >
+                  ↗
+                </div>
+              </div>
+
+              <!-- Form -->
+
+              <form id="contactForm" class="mt-8 space-y-5">
+                <!-- Name + Email -->
+
+                <div class="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label class="block text-sm text-gray-400 mb-2">
+                      Your Name
+                    </label>
+
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Enter your name"
+                      class="contact-input"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label class="block text-sm text-gray-400 mb-2">
+                      Email Address
+                    </label>
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      class="contact-input"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Business -->
+
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">
+                    Business / Brand
+                  </label>
+
+                  <input
+                    type="text"
+                    name="business"
+                    placeholder="Your brand name"
+                    class="contact-input"
+                  />
+                </div>
+
+                <!-- Service -->
+
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">
+                    What do you need help with?
+                  </label>
+
+                  <select
+                    name="service"
+                    aria-label="Select a service"
+                    class="contact-input"
+                  >
+                    <option value="" class="bg-[#0c0c0c]">
+                      Select a service
+                    </option>
+
+                    <option class="bg-[#0c0c0c]">Performance Marketing</option>
+
+                    <option class="bg-[#0c0c0c]">Social Media Marketing</option>
+
+                    <option class="bg-[#0c0c0c]">SEO & Content</option>
+
+                    <option class="bg-[#0c0c0c]">E-Commerce Website</option>
+
+                    <option class="bg-[#0c0c0c]">Brand Strategy</option>
+
+                    <option class="bg-[#0c0c0c]">
+                      Complete Growth Strategy
+                    </option>
+                  </select>
+                </div>
+
+                <!-- Budget -->
+
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">
+                    Approx. Monthly Marketing Budget
+                  </label>
+
+                  <select
+                    name="budget"
+                    aria-label="Select a monthly marketing budget"
+                    class="contact-input"
+                  >
+                    <option value="" class="bg-[#0c0c0c]">
+                      Select budget range
+                    </option>
+
+                    <option class="bg-[#0c0c0c]">Under PKR 100K</option>
+
+                    <option class="bg-[#0c0c0c]">PKR 100K – 300K</option>
+
+                    <option class="bg-[#0c0c0c]">PKR 300K – 500K</option>
+
+                    <option class="bg-[#0c0c0c]">PKR 500K+</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">
+                    Tell us about your goals
+                  </label>
+
+                  <textarea
+                    name="goals"
+                    placeholder="What are you trying to achieve?"
+                    class="contact-input"
+                    required
+                  >
+                  </textarea>
+                </div>
+
+                <!-- Button -->
+
+                <button
+                  type="submit"
+                  class="shine w-full bg-gold text-black py-4 rounded-full font-extrabold hover:bg-goldLight hover:scale-[1.02] transition"
+                >
+                  Send Project Inquiry ↗
+                </button>
+
+                <!-- Success Message -->
+
+                <div
+                  id="successMessage"
+                  class="hidden text-center text-gold text-sm border border-gold/20 bg-gold/5 rounded-xl p-4"
+                >
+                  Thanks! Your inquiry has been received. We'll get back to you
+                  soon.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+                    WHAT HAPPENS NEXT
+===================================================== -->
+
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto">
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            What Happens Next
+          </p>
+
+          <h2 class="mt-4 text-4xl md:text-5xl font-extrabold">
+            Simple process.
+
+            <span class="gold-text"> Serious growth. </span>
+          </h2>
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-3 gap-5">
+          <!-- Step 1 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-4xl font-bold"> 01 </span>
+
+            <h3 class="mt-10 text-2xl font-bold">Discovery Call</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              We learn about your business, audience, challenges and growth
+              goals.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-4xl font-bold"> 02 </span>
+
+            <h3 class="mt-10 text-2xl font-bold">Growth Strategy</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              We identify opportunities and build a clear strategy around your
+              objectives.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-4xl font-bold"> 03 </span>
+
+            <h3 class="mt-10 text-2xl font-bold">Launch & Scale</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              We execute, measure and optimize until your marketing engine
+              starts scaling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+                        CTA
+===================================================== -->
+
+    <section class="py-24 bg-[#080808]">
+      <div class="max-w-5xl mx-auto px-5 text-center reveal">
+        <div
+          class="rounded-[2rem] border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-10 md:p-16"
+        >
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Your Growth Starts Here
+          </p>
+
+          <h2 class="mt-5 text-4xl md:text-6xl font-extrabold">
+            Have a brand ready
+
+            <span class="gold-text"> to scale? </span>
+          </h2>
+
+          <p class="mt-5 text-gray-400 max-w-xl mx-auto leading-7">
+            Let's build a marketing system that turns attention into revenue.
+          </p>
+
+          <a
+            href="#contactForm"
+            class="inline-block mt-8 bg-gold text-black px-8 py-4 rounded-full font-extrabold hover:bg-goldLight hover:scale-105 transition"
+          >
+            Start Your Project ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+                        FOOTER
+===================================================== -->
+
+    <footer class="border-t border-white/10 bg-black">
+      <div
+        class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-4 gap-10"
+      >
+        <!-- Brand -->
+
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <div
+              class="w-11 h-11 rounded-xl bg-gold text-black flex items-center justify-center font-black text-xl"
+            >
+              V
+            </div>
+
+            <b class="tracking-widest"> V MARKETING </b>
+          </div>
+
+          <p class="text-gray-400 max-w-md leading-7">
+            A Lahore-based digital marketing agency helping e-commerce brands
+            turn attention into revenue through strategy, creative and
+            performance marketing.
+          </p>
+        </div>
+
+        <!-- Explore -->
+
+        <div>
+          <h3 class="font-bold mb-5">Explore</h3>
+
+          <div class="space-y-3 text-gray-400">
+            <a href="index.html" class="block hover:text-gold transition">
+              Home
+            </a>
+
+            <a href="about.html" class="block hover:text-gold transition">
+              About
+            </a>
+
+            <a href="services.html" class="block hover:text-gold transition">
+              Services
+            </a>
+
+            <a href="contact.html" class="block text-gold"> Contact </a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+
+        <div>
+          <h3 class="font-bold mb-5">Contact</h3>
+
+          <div class="space-y-3 text-gray-400">
+            <p>Lahore, Pakistan</p>
+
+            <p>hello@vmarketing.pk</p>
+
+            <p>+92 300 1234567</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+
+      <div
+        class="border-t border-white/10 py-5 text-center text-sm text-gray-500"
+      >
+        © <span id="year"></span>
+        V Marketing Lahore. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- =====================================================
+                    JAVASCRIPT
+===================================================== -->
+
+    <script>
+      /* =========================
+            MOBILE MENU
+    ========================== */
+
+      const menuBtn = document.getElementById("menuBtn");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      /* =========================
+            SCROLL REVEAL
+    ========================== */
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => {
+        observer.observe(element);
+      });
+
+      /* =========================
+            CONTACT FORM
+    ========================== */
+
+      const contactForm = document.getElementById("contactForm");
+
+      const successMessage = document.getElementById("successMessage");
+
+      contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = contactForm.querySelector("button[type=submit]");
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch("/api/inquiries", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || "Unable to submit inquiry");
+          }
+
+          successMessage.textContent = result.message;
+          successMessage.classList.remove("hidden");
+          contactForm.reset();
+        } catch (error) {
+          successMessage.textContent = error.message;
+          successMessage.classList.remove("hidden");
+          successMessage.classList.remove("text-gold");
+          successMessage.classList.add("text-red-400");
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+
+      /* =========================
+            CURRENT YEAR
+    ========================== */
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+```

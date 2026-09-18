@@ -1,0 +1,1219 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | V Marketing Lahore</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: "#D4AF37",
+                        goldLight: "#F5D76E",
+                        blackBg: "#050505"
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            font-family: "Inter", sans-serif;
+        }
+
+        .gold-text {
+            background: linear-gradient(
+                90deg,
+                #D4AF37,
+                #F5D76E,
+                #D4AF37
+            );
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(212,175,55,.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212,175,55,.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glow {
+            box-shadow: 0 0 80px rgba(212,175,55,.15);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all .8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .float {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.15),
+                transparent
+            );
+            transform: skewX(-20deg);
+            transition: .8s;
+        }
+
+        .shine:hover::after {
+            left: 140%;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="fixed top-0 left-0 right-0 z-50
+               bg-black/80 backdrop-blur-xl
+               border-b border-white/10">
+
+    <nav class="max-w-7xl mx-auto px-5 lg:px-8
+                h-20 flex items-center justify-between">
+
+        <!-- Logo -->
+
+        <a href="index.html" class="flex items-center gap-3">
+
+            <div class="w-11 h-11 rounded-xl
+                        bg-gold text-black
+                        flex items-center justify-center
+                        font-black text-2xl shadow-lg">
+                V
+            </div>
+
+            <div>
+                <h1 class="font-extrabold tracking-[.2em]">
+                    V MARKETING
+                </h1>
+
+                <p class="text-[10px] tracking-[.4em] text-gray-500">
+                    LAHORE
+                </p>
+            </div>
+
+        </a>
+
+        <!-- Desktop Menu -->
+
+        <div class="hidden md:flex items-center gap-8">
+
+            <a href="home.html"
+               class="text-gray-300 hover:text-gold transition">
+                Home
+            </a>
+
+            <a href="about.html"
+               class="text-gold transition">
+                About
+            </a>
+
+            <a href="services.html"
+               class="text-gray-300 hover:text-gold transition">
+                Services
+            </a>
+
+            <a href="contact.html"
+               class="text-gray-300 hover:text-gold transition">
+                Contact
+            </a>
+
+            <a href="contact.html"
+               class="bg-gold text-black
+                      px-6 py-3 rounded-full
+                      font-bold
+                      hover:bg-goldLight
+                      hover:scale-105
+                      transition">
+                Let's Talk ↗
+            </a>
+
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button id="menuBtn"
+                class="md:hidden text-2xl">
+            ☰
+        </button>
+
+    </nav>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobileMenu"
+         class="hidden md:hidden
+                bg-black border-t border-white/10
+                px-5 py-6">
+
+        <div class="flex flex-col gap-5">
+
+            <a href="index.html"
+               class="text-gray-300 hover:text-gold">
+                Home
+            </a>
+
+            <a href="about.html"
+               class="text-gold">
+                About
+            </a>
+
+            <a href="services.html"
+               class="text-gray-300 hover:text-gold">
+                Services
+            </a>
+
+            <a href="contact.html"
+               class="text-gray-300 hover:text-gold">
+                Contact
+            </a>
+
+            <a href="contact.html"
+               class="bg-gold text-black
+                      text-center
+                      py-3 rounded-full
+                      font-bold">
+                Let's Talk
+            </a>
+
+        </div>
+    </div>
+
+</header>
+
+
+<!-- ================= ABOUT HERO ================= -->
+
+<section class="min-h-[75vh]
+                grid-bg
+                flex items-center
+                pt-32 pb-20
+                relative overflow-hidden">
+
+    <!-- Glow -->
+
+    <div class="absolute
+                w-96 h-96
+                bg-gold/10
+                rounded-full
+                blur-[130px]
+                -top-20
+                right-0">
+    </div>
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8
+                w-full">
+
+        <div class="max-w-4xl reveal">
+
+            <div class="inline-flex
+                        border border-gold/30
+                        bg-gold/5
+                        text-gold
+                        px-4 py-2
+                        rounded-full
+                        text-xs
+                        font-bold
+                        tracking-widest
+                        uppercase">
+
+                About V Marketing
+
+            </div>
+
+            <h1 class="mt-7
+                       text-5xl
+                       sm:text-6xl
+                       md:text-7xl
+                       font-extrabold
+                       leading-tight">
+
+                We don't just market brands.
+
+                <span class="gold-text font-serif italic">
+                    We grow them.
+                </span>
+
+            </h1>
+
+            <p class="mt-7
+                      text-lg
+                      md:text-xl
+                      text-gray-400
+                      max-w-3xl
+                      leading-8">
+
+                V Marketing is a Lahore-based digital marketing agency
+                focused on helping ambitious e-commerce brands turn
+                attention into measurable revenue.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHO WE ARE ================= -->
+
+<section class="py-24 bg-[#080808]">
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8
+                grid lg:grid-cols-2
+                gap-16
+                items-center">
+
+        <!-- Content -->
+
+        <div class="reveal">
+
+            <p class="text-gold
+                      uppercase
+                      tracking-[.3em]
+                      text-xs
+                      font-bold">
+                Who We Are
+            </p>
+
+            <h2 class="mt-4
+                       text-4xl
+                       md:text-5xl
+                       font-extrabold
+                       leading-tight">
+
+                A growth partner
+                <span class="gold-text">
+                    built for ambitious brands.
+                </span>
+
+            </h2>
+
+            <p class="mt-6
+                      text-gray-400
+                      leading-8">
+
+                We believe great marketing is more than running ads.
+                It's about understanding people, building a strong
+                brand and creating a journey that turns visitors
+                into loyal customers.
+
+            </p>
+
+            <p class="mt-5
+                      text-gray-400
+                      leading-8">
+
+                From strategy and creative direction to performance
+                marketing and conversion optimization, we bring
+                everything together under one growth-focused approach.
+
+            </p>
+
+        </div>
+
+
+        <!-- Visual Card -->
+
+        <div class="reveal">
+
+            <div class="glow
+                        rounded-[2rem]
+                        border border-gold/20
+                        bg-white/[.03]
+                        p-5">
+
+                <div class="rounded-[1.5rem]
+                            bg-[#0c0c0c]
+                            border border-white/10
+                            p-8">
+
+                    <div class="flex justify-between items-center">
+
+                        <span class="text-gray-400 text-sm">
+                            Our Mindset
+                        </span>
+
+                        <span class="text-gold text-sm">
+                            ● GROWTH
+                        </span>
+
+                    </div>
+
+                    <div class="mt-12">
+
+                        <h3 class="text-4xl
+                                   md:text-5xl
+                                   font-extrabold
+                                   leading-tight">
+
+                            Strategy.
+
+                            <span class="gold-text">
+                                Creative.
+                            </span>
+
+                            Results.
+
+                        </h3>
+
+                    </div>
+
+                    <div class="mt-12
+                                grid grid-cols-2
+                                gap-4">
+
+                        <div class="border border-white/10
+                                    rounded-2xl
+                                    p-5">
+
+                            <p class="text-gray-500 text-sm">
+                                Focus
+                            </p>
+
+                            <h4 class="text-xl
+                                       font-bold
+                                       mt-2">
+                                E-Commerce
+                            </h4>
+
+                        </div>
+
+                        <div class="bg-gold
+                                    text-black
+                                    rounded-2xl
+                                    p-5">
+
+                            <p class="text-black/60 text-sm">
+                                Goal
+                            </p>
+
+                            <h4 class="text-xl
+                                       font-bold
+                                       mt-2">
+                                Growth
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OUR MISSION ================= -->
+
+<section class="py-24">
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8">
+
+        <div class="reveal text-center
+                    max-w-3xl mx-auto">
+
+            <p class="text-gold
+                      uppercase
+                      tracking-[.3em]
+                      text-xs
+                      font-bold">
+                Our Mission
+            </p>
+
+            <h2 class="mt-4
+                       text-4xl
+                       md:text-6xl
+                       font-extrabold">
+
+                Make digital growth
+
+                <span class="gold-text font-serif italic">
+                    simpler.
+                </span>
+
+            </h2>
+
+            <p class="mt-6
+                      text-gray-400
+                      leading-8
+                      text-lg">
+
+                Our mission is simple: create smarter marketing systems
+                that help businesses grow with clarity, consistency
+                and confidence.
+
+            </p>
+
+        </div>
+
+
+        <!-- Mission Cards -->
+
+        <div class="mt-14
+                    grid md:grid-cols-3
+                    gap-5">
+
+            <div class="reveal shine
+                        border border-white/10
+                        rounded-3xl
+                        p-8
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <span class="text-gold text-3xl">
+                    01
+                </span>
+
+                <h3 class="mt-12
+                           text-2xl
+                           font-bold">
+                    Think Bigger
+                </h3>
+
+                <p class="mt-4
+                          text-gray-400
+                          leading-7">
+
+                    We challenge ordinary ideas and search for
+                    opportunities that create real competitive advantage.
+
+                </p>
+
+            </div>
+
+
+            <div class="reveal shine
+                        border border-white/10
+                        rounded-3xl
+                        p-8
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <span class="text-gold text-3xl">
+                    02
+                </span>
+
+                <h3 class="mt-12
+                           text-2xl
+                           font-bold">
+                    Move Fast
+                </h3>
+
+                <p class="mt-4
+                          text-gray-400
+                          leading-7">
+
+                    Markets change quickly. We test, learn and adapt
+                    so your brand can stay ahead.
+
+                </p>
+
+            </div>
+
+
+            <div class="reveal shine
+                        border border-white/10
+                        rounded-3xl
+                        p-8
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <span class="text-gold text-3xl">
+                    03
+                </span>
+
+                <h3 class="mt-12
+                           text-2xl
+                           font-bold">
+                    Deliver Results
+                </h3>
+
+                <p class="mt-4
+                          text-gray-400
+                          leading-7">
+
+                    Beautiful campaigns mean little without results.
+                    Everything we do is connected to measurable growth.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TEAM ================= -->
+
+<section class="py-24 bg-[#080808]">
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8">
+
+        <div class="reveal">
+
+            <p class="text-gold
+                      uppercase
+                      tracking-[.3em]
+                      text-xs
+                      font-bold">
+                Meet The Team
+            </p>
+
+            <h2 class="mt-4
+                       text-4xl
+                       md:text-5xl
+                       font-extrabold">
+
+                The people behind
+
+                <span class="gold-text">
+                    the growth.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="mt-12
+                    grid sm:grid-cols-2
+                    lg:grid-cols-3
+                    gap-6">
+
+
+            <!-- Team Member -->
+
+            <div class="reveal group
+                        rounded-3xl
+                        border border-white/10
+                        bg-white/[.03]
+                        p-6
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <div class="h-64
+                            rounded-2xl
+                            bg-gradient-to-br
+                            from-gold/20
+                            to-transparent
+                            border border-white/10
+                            flex items-center
+                            justify-center">
+
+                    <span class="text-7xl
+                                 font-serif
+                                 italic
+                                 gold-text">
+                        V
+                    </span>
+
+                </div>
+
+                <h3 class="mt-6
+                           text-2xl
+                           font-bold">
+                    Creative & Strategy
+                </h3>
+
+                <p class="text-gold mt-2 text-sm">
+                    Brand Strategy
+                </p>
+
+                <p class="mt-4
+                          text-gray-500
+                          leading-6">
+
+                    Turning ideas into powerful brand stories,
+                    campaigns and creative directions.
+
+                </p>
+
+            </div>
+
+
+            <!-- Team Member -->
+
+            <div class="reveal group
+                        rounded-3xl
+                        border border-white/10
+                        bg-white/[.03]
+                        p-6
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <div class="h-64
+                            rounded-2xl
+                            bg-gradient-to-br
+                            from-gold/20
+                            to-transparent
+                            border border-white/10
+                            flex items-center
+                            justify-center">
+
+                    <span class="text-7xl
+                                 font-serif
+                                 italic
+                                 gold-text">
+                        M
+                    </span>
+
+                </div>
+
+                <h3 class="mt-6
+                           text-2xl
+                           font-bold">
+                    Performance Team
+                </h3>
+
+                <p class="text-gold mt-2 text-sm">
+                    Paid Media
+                </p>
+
+                <p class="mt-4
+                          text-gray-500
+                          leading-6">
+
+                    Building data-driven campaigns designed
+                    to maximize performance and return.
+
+                </p>
+
+            </div>
+
+
+            <!-- Team Member -->
+
+            <div class="reveal group
+                        rounded-3xl
+                        border border-white/10
+                        bg-white/[.03]
+                        p-6
+                        hover:border-gold/50
+                        hover:-translate-y-2
+                        transition">
+
+                <div class="h-64
+                            rounded-2xl
+                            bg-gradient-to-br
+                            from-gold/20
+                            to-transparent
+                            border border-white/10
+                            flex items-center
+                            justify-center">
+
+                    <span class="text-7xl
+                                 font-serif
+                                 italic
+                                 gold-text">
+                        G
+                    </span>
+
+                </div>
+
+                <h3 class="mt-6
+                           text-2xl
+                           font-bold">
+                    Growth Team
+                </h3>
+
+                <p class="text-gold mt-2 text-sm">
+                    E-Commerce Growth
+                </p>
+
+                <p class="mt-4
+                          text-gray-500
+                          leading-6">
+
+                    Connecting marketing, analytics and conversion
+                    to build scalable growth systems.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="py-24">
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8">
+
+        <div class="reveal text-center
+                    max-w-2xl mx-auto">
+
+            <p class="text-gold
+                      uppercase
+                      tracking-[.3em]
+                      text-xs
+                      font-bold">
+                Why Choose Us
+            </p>
+
+            <h2 class="mt-4
+                       text-4xl
+                       md:text-5xl
+                       font-extrabold">
+
+                Built around
+
+                <span class="gold-text">
+                    your growth.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="mt-14
+                    grid md:grid-cols-4
+                    gap-4">
+
+            <div class="reveal p-7
+                        rounded-2xl
+                        border border-white/10
+                        hover:bg-gold
+                        hover:text-black
+                        transition">
+
+                <div class="text-gold
+                            text-3xl
+                            mb-8">
+                    ✦
+                </div>
+
+                <h3 class="font-bold text-lg">
+                    Strategy First
+                </h3>
+
+                <p class="mt-3 text-sm opacity-60">
+                    Every decision starts with a clear
+                    business objective.
+                </p>
+
+            </div>
+
+
+            <div class="reveal p-7
+                        rounded-2xl
+                        border border-white/10
+                        hover:bg-gold
+                        hover:text-black
+                        transition">
+
+                <div class="text-gold
+                            text-3xl
+                            mb-8">
+                    ◇
+                </div>
+
+                <h3 class="font-bold text-lg">
+                    Creative Thinking
+                </h3>
+
+                <p class="mt-3 text-sm opacity-60">
+                    Ideas designed to capture attention
+                    and make brands memorable.
+                </p>
+
+            </div>
+
+
+            <div class="reveal p-7
+                        rounded-2xl
+                        border border-white/10
+                        hover:bg-gold
+                        hover:text-black
+                        transition">
+
+                <div class="text-gold
+                            text-3xl
+                            mb-8">
+                    ↗
+                </div>
+
+                <h3 class="font-bold text-lg">
+                    Data Driven
+                </h3>
+
+                <p class="mt-3 text-sm opacity-60">
+                    We use data to understand what works
+                    and improve what doesn't.
+                </p>
+
+            </div>
+
+
+            <div class="reveal p-7
+                        rounded-2xl
+                        border border-white/10
+                        hover:bg-gold
+                        hover:text-black
+                        transition">
+
+                <div class="text-gold
+                            text-3xl
+                            mb-8">
+                    ◎
+                </div>
+
+                <h3 class="font-bold text-lg">
+                    Long-Term Growth
+                </h3>
+
+                <p class="mt-3 text-sm opacity-60">
+                    We build systems designed for your
+                    next stage, not just today.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="py-24">
+
+    <div class="max-w-5xl mx-auto
+                px-5
+                text-center
+                reveal">
+
+        <div class="rounded-[2rem]
+                    border border-gold/30
+                    bg-gradient-to-br
+                    from-gold/10
+                    to-transparent
+                    p-10 md:p-16">
+
+            <p class="text-gold
+                      uppercase
+                      tracking-[.3em]
+                      text-xs
+                      font-bold">
+                Let's Work Together
+            </p>
+
+            <h2 class="mt-5
+                       text-4xl
+                       md:text-6xl
+                       font-extrabold">
+
+                Your next chapter starts
+
+                <span class="gold-text">
+                    here.
+                </span>
+
+            </h2>
+
+            <p class="mt-5
+                      text-gray-400
+                      max-w-xl
+                      mx-auto">
+
+                Have a brand ready to grow?
+                Let's turn your goals into a clear growth strategy.
+
+            </p>
+
+            <a href="contact.html"
+               class="inline-block
+                      mt-8
+                      bg-gold
+                      text-black
+                      px-8 py-4
+                      rounded-full
+                      font-extrabold
+                      hover:bg-goldLight
+                      hover:scale-105
+                      transition">
+
+                Start A Conversation ↗
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="border-t border-white/10
+               bg-black">
+
+    <div class="max-w-7xl mx-auto
+                px-5 lg:px-8
+                py-14
+                grid md:grid-cols-4
+                gap-10">
+
+        <!-- Brand -->
+
+        <div class="md:col-span-2">
+
+            <div class="flex items-center gap-3 mb-5">
+
+                <div class="w-11 h-11
+                            rounded-xl
+                            bg-gold
+                            text-black
+                            flex items-center
+                            justify-center
+                            font-black
+                            text-xl">
+                    V
+                </div>
+
+                <b class="tracking-widest">
+                    V MARKETING
+                </b>
+
+            </div>
+
+            <p class="text-gray-400
+                      max-w-md
+                      leading-7">
+
+                A Lahore-based digital marketing agency
+                helping e-commerce brands turn attention
+                into revenue through strategy, creative
+                and performance marketing.
+
+            </p>
+
+        </div>
+
+
+        <!-- Explore -->
+
+        <div>
+
+            <h3 class="font-bold mb-5">
+                Explore
+            </h3>
+
+            <div class="space-y-3 text-gray-400">
+
+                <a href="index.html"
+                   class="block hover:text-gold transition">
+                    Home
+                </a>
+
+                <a href="about.html"
+                   class="block text-gold">
+                    About
+                </a>
+
+                <a href="services.html"
+                   class="block hover:text-gold transition">
+                    Services
+                </a>
+
+                <a href="contact.html"
+                   class="block hover:text-gold transition">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Contact -->
+
+        <div>
+
+            <h3 class="font-bold mb-5">
+                Contact
+            </h3>
+
+            <div class="space-y-3 text-gray-400">
+
+                <p>
+                    Lahore, Pakistan
+                </p>
+
+                <p>
+                    hello@vmarketing.pk
+                </p>
+
+                <p>
+                    +92 300 1234567
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="border-t
+                border-white/10
+                py-5
+                text-center
+                text-sm
+                text-gray-500">
+
+        © <span id="year"></span>
+        V Marketing Lahore.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Mobile Menu
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+
+    // Scroll Animation
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach((element) => {
+
+            observer.observe(element);
+
+        });
+
+
+    // Current Year
+
+    document.getElementById("year")
+        .textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
+```

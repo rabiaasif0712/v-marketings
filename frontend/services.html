@@ -1,0 +1,1035 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Services | V Marketing Lahore</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: "#D4AF37",
+              goldLight: "#F5D76E",
+              blackBg: "#050505",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #050505;
+        color: white;
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* GOLD TEXT */
+      .gold-text {
+        background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-size: 200% auto;
+        animation: goldMove 5s linear infinite;
+      }
+
+      @keyframes goldMove {
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* GRID */
+      .grid-bg {
+        background-image: linear-gradient(
+            rgba(212, 175, 55, 0.045) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.045) 1px, transparent 1px);
+
+        background-size: 50px 50px;
+      }
+
+      /* REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* FLOAT */
+      .float {
+        animation: floating 5s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* NAV LINK */
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        height: 1px;
+        width: 0;
+        background: #d4af37;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* SERVICE CARD */
+      .service-card {
+        position: relative;
+        overflow: hidden;
+        transition: 0.45s ease;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 2px;
+
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+
+        transition: 0.6s;
+      }
+
+      .service-card:hover::before {
+        left: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-9px);
+        border-color: rgba(212, 175, 55, 0.45);
+
+        box-shadow: 0 25px 70px rgba(212, 175, 55, 0.08);
+      }
+
+      .service-icon {
+        transition: 0.4s ease;
+      }
+
+      .service-card:hover .service-icon {
+        background: #d4af37;
+        color: #050505;
+        transform: rotate(-5deg) scale(1.08);
+      }
+
+      /* PROCESS CARD */
+      .process-card {
+        transition: 0.4s ease;
+      }
+
+      .process-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(212, 175, 55, 0.4);
+      }
+
+      .process-number {
+        transition: 0.4s ease;
+      }
+
+      .process-card:hover .process-number {
+        color: #d4af37;
+        transform: scale(1.1);
+      }
+
+      /* SHINE */
+      .shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine::after {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: -130%;
+
+        width: 60%;
+        height: 100%;
+
+        background: rgba(255, 255, 255, 0.15);
+
+        transform: skewX(-20deg);
+
+        transition: 0.7s;
+      }
+
+      .shine:hover::after {
+        left: 140%;
+      }
+
+      /* STAT */
+      .stat-box {
+        transition: 0.4s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.35);
+      }
+
+      /* MOBILE MENU */
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="h-20 flex items-center justify-between">
+          <!-- LOGO -->
+
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gold text-black flex items-center justify-center font-serif text-xl font-bold group-hover:rotate-6 transition duration-300"
+            >
+              V
+            </div>
+
+            <div>
+              <div class="font-bold tracking-wide">V MARKETING</div>
+
+              <div class="text-[10px] tracking-[0.3em] text-gold">LAHORE</div>
+            </div>
+          </a>
+
+          <!-- DESKTOP NAV -->
+
+          <div class="hidden md:flex items-center gap-9 text-sm">
+            <a
+              href="home.html"
+              class="nav-link text-gray-300 hover:text-white transition"
+            >
+              Home
+            </a>
+
+            <a
+              href="about.html"
+              class="nav-link text-gray-300 hover:text-white transition"
+            >
+              About
+            </a>
+
+            <a href="services.html" class="nav-link text-gold"> Services </a>
+
+            <a
+              href="contact.html"
+              class="nav-link text-gray-300 hover:text-white transition"
+            >
+              Contact
+            </a>
+
+            <a
+              href="contact.html"
+              class="shine ml-2 bg-gold text-black px-5 py-3 rounded-full font-semibold hover:bg-goldLight transition"
+            >
+              Let's Talk ↗
+            </a>
+          </div>
+
+          <!-- MOBILE BUTTON -->
+
+          <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+        </div>
+
+        <!-- MOBILE MENU -->
+
+        <div
+          id="mobileMenu"
+          class="mobile-menu md:hidden pb-6 border-t border-white/10"
+        >
+          <div class="flex flex-col gap-5 pt-6 text-sm">
+            <a href="index.html" class="text-gray-300 hover:text-gold">
+              Home
+            </a>
+
+            <a href="about.html" class="text-gray-300 hover:text-gold">
+              About
+            </a>
+
+            <a href="services.html" class="text-gold"> Services </a>
+
+            <a href="contact.html" class="text-gray-300 hover:text-gold">
+              Contact
+            </a>
+
+            <a
+              href="contact.html"
+              class="bg-gold text-black px-5 py-3 rounded-full font-semibold text-center"
+            >
+              Let's Talk ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =====================================================
+     HERO
+===================================================== -->
+
+    <section class="relative pt-40 pb-28 grid-bg overflow-hidden">
+      <!-- Glow -->
+
+      <div
+        class="absolute top-32 left-10 w-72 h-72 bg-gold/10 blur-[130px] rounded-full"
+      ></div>
+
+      <div
+        class="absolute bottom-0 right-0 w-80 h-80 bg-gold/5 blur-[130px] rounded-full"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+        <div class="max-w-4xl reveal">
+          <p
+            class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-6"
+          >
+            Our Services
+          </p>
+
+          <h1 class="font-serif text-5xl md:text-7xl leading-tight">
+            Everything your brand needs
+            <span class="gold-text italic"> to grow. </span>
+          </h1>
+
+          <p
+            class="text-gray-400 text-lg md:text-xl leading-relaxed mt-7 max-w-2xl"
+          >
+            From strategy and branding to performance marketing and e-commerce
+            growth, we create digital solutions that turn attention into
+            meaningful business results.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mt-9">
+            <a
+              href="#services"
+              class="shine bg-gold text-black px-6 py-3.5 rounded-full font-semibold hover:bg-goldLight hover:scale-105 transition"
+            >
+              Explore Services ↓
+            </a>
+
+            <a
+              href="contact.html"
+              class="px-6 py-3.5 rounded-full border border-white/15 text-gray-300 hover:border-gold hover:text-gold transition"
+            >
+              Start a Project ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     WHAT WE DO
+===================================================== -->
+
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- TEXT -->
+
+          <div class="reveal">
+            <p class="text-gold uppercase tracking-[0.25em] text-sm mb-5">
+              What We Do
+            </p>
+
+            <h2 class="font-serif text-4xl md:text-5xl leading-tight">
+              Strategy first.
+              <br />
+
+              <span class="gold-text italic"> Growth always. </span>
+            </h2>
+
+            <p class="text-gray-400 leading-8 mt-7 max-w-xl">
+              Great marketing isn't about being everywhere. It's about being in
+              the right place, with the right message, at the right time.
+            </p>
+
+            <p class="text-gray-500 leading-7 mt-4 max-w-xl">
+              We combine creative thinking with data-driven decisions to build
+              marketing systems that are designed for long-term growth.
+            </p>
+
+            <div class="mt-8 flex items-center gap-4">
+              <div class="w-12 h-px bg-gold"></div>
+
+              <span class="text-sm text-gray-400">
+                Think smart. Market better. Grow faster.
+              </span>
+            </div>
+          </div>
+
+          <!-- APPROACH CARD -->
+
+          <div class="reveal">
+            <div
+              class="float rounded-3xl border border-white/10 bg-white/[0.02] p-8"
+            >
+              <div class="flex justify-between items-start mb-8">
+                <div>
+                  <span class="text-xs text-gold uppercase tracking-widest">
+                    Our Approach
+                  </span>
+
+                  <h3 class="text-2xl font-semibold mt-3">
+                    Built around your goals.
+                  </h3>
+                </div>
+
+                <div
+                  class="w-12 h-12 rounded-full border border-gold/40 flex items-center justify-center text-gold"
+                >
+                  ↗
+                </div>
+              </div>
+
+              <div class="space-y-6">
+                <div class="flex gap-4">
+                  <span class="text-gold font-semibold"> 01 </span>
+
+                  <div>
+                    <h4 class="font-medium">Understand</h4>
+
+                    <p class="text-gray-500 text-sm mt-1">
+                      Your market, audience and goals.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <span class="text-gold font-semibold"> 02 </span>
+
+                  <div>
+                    <h4 class="font-medium">Strategize</h4>
+
+                    <p class="text-gray-500 text-sm mt-1">
+                      A clear plan built for measurable growth.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex gap-4">
+                  <span class="text-gold font-semibold"> 03 </span>
+
+                  <div>
+                    <h4 class="font-medium">Execute</h4>
+
+                    <p class="text-gray-500 text-sm mt-1">
+                      Launch, test, optimize and scale.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     SERVICES
+===================================================== -->
+
+    <section
+      id="services"
+      class="py-24 bg-white/[0.015] border-y border-white/5"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- HEADING -->
+
+        <div class="max-w-3xl mb-16 reveal">
+          <p class="text-gold uppercase tracking-[0.25em] text-sm mb-5">
+            Marketing Services
+          </p>
+
+          <h2 class="font-serif text-4xl md:text-5xl leading-tight">
+            Marketing services
+            <span class="gold-text italic"> that make an impact. </span>
+          </h2>
+
+          <p class="text-gray-400 mt-6 leading-7">
+            Focused services. Clear strategy. Real business outcomes.
+          </p>
+        </div>
+
+        <!-- SERVICE GRID -->
+
+        <div
+          id="publicServicesGrid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          <!-- 01 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                ◈
+              </div>
+
+              <span class="text-gray-600 text-sm"> 01 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">Performance Marketing</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              Paid campaigns designed to bring qualified traffic, leads and
+              sales while keeping performance measurable.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+
+          <!-- 02 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                ◎
+              </div>
+
+              <span class="text-gray-600 text-sm"> 02 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">Social Media Marketing</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              Strategic content and social campaigns that make your brand more
+              visible, engaging and memorable.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+
+          <!-- 03 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                ⌁
+              </div>
+
+              <span class="text-gray-600 text-sm"> 03 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">SEO & Content</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              Search-focused content and SEO systems that help your business
+              become easier to discover organically.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+
+          <!-- 04 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                □
+              </div>
+
+              <span class="text-gray-600 text-sm"> 04 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">E-Commerce Growth</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              Conversion-focused strategies that help online stores attract
+              customers and increase revenue.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+
+          <!-- 05 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                ✦
+              </div>
+
+              <span class="text-gray-600 text-sm"> 05 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">Brand Strategy</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              Positioning, messaging and creative direction that help your brand
+              stand apart from the competition.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+
+          <!-- 06 -->
+
+          <div
+            class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30"
+          >
+            <div class="flex justify-between items-start">
+              <div
+                class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl"
+              >
+                ↗
+              </div>
+
+              <span class="text-gray-600 text-sm"> 06 </span>
+            </div>
+
+            <h3 class="text-xl font-semibold mt-8">Complete Growth Strategy</h3>
+
+            <p class="text-gray-400 text-sm leading-7 mt-4">
+              A complete digital growth system combining strategy, content,
+              advertising and continuous optimization.
+            </p>
+
+            <div class="mt-6 text-gold text-sm">Explore service →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     WHY OUR SERVICES
+===================================================== -->
+
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <p class="text-gold uppercase tracking-[0.25em] text-sm">
+            Why V Marketing
+          </p>
+
+          <h2 class="font-serif text-4xl md:text-5xl mt-5">
+            More than services.
+            <span class="gold-text italic"> A growth partner. </span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5 mt-14">
+          <!-- BOX -->
+
+          <div
+            class="stat-box reveal border border-white/10 rounded-3xl p-8 bg-white/[0.02]"
+          >
+            <div class="text-gold text-3xl">01</div>
+
+            <h3 class="text-xl font-semibold mt-6">Data Driven</h3>
+
+            <p class="text-gray-500 text-sm leading-7 mt-4">
+              Decisions backed by research, performance data and continuous
+              optimization.
+            </p>
+          </div>
+
+          <!-- BOX -->
+
+          <div
+            class="stat-box reveal border border-white/10 rounded-3xl p-8 bg-white/[0.02]"
+          >
+            <div class="text-gold text-3xl">02</div>
+
+            <h3 class="text-xl font-semibold mt-6">Creative Thinking</h3>
+
+            <p class="text-gray-500 text-sm leading-7 mt-4">
+              Strategy gets attention. Creativity makes people remember your
+              brand.
+            </p>
+          </div>
+
+          <!-- BOX -->
+
+          <div
+            class="stat-box reveal border border-white/10 rounded-3xl p-8 bg-white/[0.02]"
+          >
+            <div class="text-gold text-3xl">03</div>
+
+            <h3 class="text-xl font-semibold mt-6">Results Focused</h3>
+
+            <p class="text-gray-500 text-sm leading-7 mt-4">
+              We focus on outcomes that matter to your business — not vanity
+              metrics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     PROCESS
+===================================================== -->
+
+    <section class="py-24 bg-white/[0.015] border-y border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- LEFT -->
+
+          <div class="reveal">
+            <p class="text-gold uppercase tracking-[0.25em] text-sm">
+              How We Work
+            </p>
+
+            <h2 class="font-serif text-4xl md:text-5xl mt-5 leading-tight">
+              Simple process.
+              <br />
+
+              <span class="gold-text italic"> Serious growth. </span>
+            </h2>
+
+            <p class="text-gray-400 leading-7 mt-6 max-w-lg">
+              We keep the process clear, collaborative and focused on moving
+              your business forward.
+            </p>
+          </div>
+
+          <!-- RIGHT -->
+
+          <div class="space-y-4">
+            <div
+              class="process-card reveal border border-white/10 rounded-2xl p-6"
+            >
+              <div class="flex gap-5">
+                <div
+                  class="process-number text-gray-600 text-2xl font-semibold"
+                >
+                  01
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-lg">Discover</h3>
+
+                  <p class="text-gray-500 text-sm leading-6 mt-2">
+                    We learn about your brand, audience, challenges and goals.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="process-card reveal border border-white/10 rounded-2xl p-6"
+            >
+              <div class="flex gap-5">
+                <div
+                  class="process-number text-gray-600 text-2xl font-semibold"
+                >
+                  02
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-lg">Build</h3>
+
+                  <p class="text-gray-500 text-sm leading-6 mt-2">
+                    We create a tailored marketing strategy designed around
+                    growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="process-card reveal border border-white/10 rounded-2xl p-6"
+            >
+              <div class="flex gap-5">
+                <div
+                  class="process-number text-gray-600 text-2xl font-semibold"
+                >
+                  03
+                </div>
+
+                <div>
+                  <h3 class="font-semibold text-lg">Scale</h3>
+
+                  <p class="text-gray-500 text-sm leading-6 mt-2">
+                    We measure performance, optimize campaigns and scale what
+                    works.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     CTA
+===================================================== -->
+
+    <section class="py-28">
+      <div class="max-w-5xl mx-auto px-6 text-center reveal">
+        <p class="text-gold uppercase tracking-[0.3em] text-xs">
+          Let's Build Something
+        </p>
+
+        <h2 class="font-serif text-4xl md:text-6xl leading-tight mt-6">
+          Your next growth story
+          <span class="gold-text italic"> starts here. </span>
+        </h2>
+
+        <p class="text-gray-400 max-w-xl mx-auto mt-6 leading-7">
+          Tell us about your business, and let's explore what's possible.
+        </p>
+
+        <a
+          href="contact.html"
+          class="shine inline-flex mt-9 bg-gold text-black px-7 py-4 rounded-full font-semibold hover:bg-goldLight hover:scale-105 transition duration-300"
+        >
+          Start a Conversation ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="border-t border-white/10 py-14">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-10">
+          <!-- BRAND -->
+
+          <div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-xl bg-gold text-black flex items-center justify-center font-serif text-xl font-bold"
+              >
+                V
+              </div>
+
+              <div>
+                <div class="font-bold">V MARKETING</div>
+
+                <div class="text-[10px] tracking-[0.3em] text-gold">LAHORE</div>
+              </div>
+            </div>
+
+            <p class="text-gray-500 text-sm leading-6 mt-5 max-w-sm">
+              Strategic digital marketing for ambitious brands ready to grow.
+            </p>
+          </div>
+
+          <!-- EXPLORE -->
+
+          <div>
+            <h4 class="font-semibold mb-5">Explore</h4>
+
+            <div class="flex flex-col gap-3 text-sm text-gray-500">
+              <a href="index.html" class="hover:text-gold transition"> Home </a>
+
+              <a href="about.html" class="hover:text-gold transition">
+                About
+              </a>
+
+              <a href="services.html" class="hover:text-gold transition">
+                Services
+              </a>
+
+              <a href="contact.html" class="hover:text-gold transition">
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <!-- CONTACT -->
+
+          <div>
+            <h4 class="font-semibold mb-5">Let's Connect</h4>
+
+            <div class="space-y-3 text-sm text-gray-500">
+              <p>hello@vmarketing.pk</p>
+
+              <p>+92 300 1234567</p>
+
+              <p>Lahore, Pakistan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+
+        <div
+          class="border-t border-white/10 mt-12 pt-7 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-600"
+        >
+          <p>
+            © <span id="year"></span>
+            V Marketing Lahore. All rights reserved.
+          </p>
+
+          <p>Built for brands that want to grow.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+    <script>
+      /* MOBILE MENU */
+
+      const menuBtn = document.getElementById("menuBtn");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      /* SCROLL REVEAL */
+
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+
+        {
+          threshold: 0.12,
+        }
+      );
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+
+      async function loadPublicServices() {
+        const response = await fetch("/api/services");
+        const result = await response.json();
+        if (!response.ok || !result.success) return;
+
+        if (!result.data.length) return;
+
+        const grid = document.getElementById("publicServicesGrid");
+        grid.innerHTML = result.data
+          .filter((service) => service.status === "active")
+          .map(
+            (service, index) => `
+            <div class="service-card reveal border border-white/10 rounded-3xl p-7 bg-black/30">
+              <div class="flex justify-between items-start">
+                <div class="service-icon w-12 h-12 rounded-2xl border border-gold/30 flex items-center justify-center text-gold text-xl">${
+                  service.icon
+                }</div>
+                <span class="text-gray-600 text-sm">${String(
+                  index + 1
+                ).padStart(2, "0")}</span>
+              </div>
+              <h3 class="text-xl font-semibold mt-8"></h3>
+              <p class="text-gray-400 text-sm leading-7 mt-4"></p>
+              <div class="mt-6 text-gold text-sm">Explore service →</div>
+            </div>`
+          )
+          .join("");
+
+        result.data
+          .filter((service) => service.status === "active")
+          .forEach((service, index) => {
+            const card = grid.children[index];
+            card.querySelector("h3").textContent = service.name;
+            card.querySelector("p").textContent = service.description;
+            observer.observe(card);
+          });
+      }
+
+      loadPublicServices().catch(() => {});
+
+      /* YEAR */
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+```

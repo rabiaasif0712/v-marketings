@@ -1,0 +1,361 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Login | V Marketing Lahore</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: "#D4AF37",
+              goldLight: "#F5D76E",
+              blackBg: "#050505",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #050505;
+        color: white;
+        font-family: "Inter", sans-serif;
+      }
+
+      .gold-text {
+        background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .grid-bg {
+        background-image: linear-gradient(
+            rgba(212, 175, 55, 0.035) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.035) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+
+      .glow {
+        box-shadow: 0 0 60px rgba(212, 175, 55, 0.08),
+          0 0 120px rgba(212, 175, 55, 0.04);
+      }
+
+      .login-card {
+        background: rgba(12, 12, 12, 0.88);
+        border: 1px solid rgba(212, 175, 55, 0.18);
+        backdrop-filter: blur(18px);
+      }
+
+      .input-field {
+        transition: all 0.3s ease;
+      }
+
+      .input-field:focus {
+        border-color: rgba(212, 175, 55, 0.7);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+        outline: none;
+      }
+
+      .login-btn {
+        transition: all 0.3s ease;
+      }
+
+      .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(212, 175, 55, 0.18);
+      }
+
+      .logo-box {
+        transition: all 0.3s ease;
+      }
+
+      .logo-box:hover {
+        transform: rotate(-4deg) scale(1.05);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+      }
+
+      .floating {
+        animation: floating 5s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen grid-bg">
+    <!-- Background Glow -->
+    <div
+      class="fixed top-[-180px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#D4AF37]/5 blur-[130px] rounded-full pointer-events-none"
+    ></div>
+
+    <main class="min-h-screen flex items-center justify-center px-5 py-12">
+      <div class="w-full max-w-md fade-in">
+        <!-- Logo -->
+        <div class="flex flex-col items-center mb-8">
+          <div
+            class="logo-box w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-[#9d7b12] flex items-center justify-center shadow-xl shadow-yellow-900/10"
+          >
+            <span class="text-black text-3xl font-black"> V </span>
+          </div>
+
+          <h1 class="mt-5 text-2xl font-extrabold tracking-tight">
+            V <span class="gold-text">MARKETING</span>
+          </h1>
+
+          <p class="text-gray-500 text-sm mt-1">Lahore • Admin Panel</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="login-card glow rounded-3xl p-7 sm:p-9">
+          <div class="mb-8">
+            <p
+              class="text-gold text-xs uppercase tracking-[0.25em] font-semibold mb-3"
+            >
+              Secure Access
+            </p>
+
+            <h2 class="text-3xl font-bold">
+              Welcome <span class="font-serif italic gold-text">back.</span>
+            </h2>
+
+            <p class="text-gray-500 text-sm mt-3">
+              Sign in to manage your V Marketing website.
+            </p>
+          </div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="space-y-5">
+            <!-- Email -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="admin@example.com"
+                required
+                class="input-field w-full px-4 py-3.5 bg-white/[0.03] border border-white/10 rounded-xl text-white placeholder-gray-600 text-sm"
+              />
+            </div>
+
+            <!-- Password -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="password" class="text-sm font-medium text-gray-300">
+                  Password
+                </label>
+
+                <button
+                  type="button"
+                  class="text-xs text-gold hover:text-goldLight transition"
+                >
+                  Forgot Password?
+                </button>
+              </div>
+
+              <div class="relative">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  required
+                  class="input-field w-full px-4 py-3.5 pr-12 bg-white/[0.03] border border-white/10 rounded-xl text-white placeholder-gray-600 text-sm"
+                />
+
+                <button
+                  type="button"
+                  id="togglePassword"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gold transition"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember -->
+            <div class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="remember"
+                class="accent-[#D4AF37] w-4 h-4"
+              />
+
+              <label
+                for="remember"
+                class="text-sm text-gray-500 cursor-pointer"
+              >
+                Remember me
+              </label>
+            </div>
+
+            <!-- Error -->
+            <div
+              id="errorMessage"
+              class="hidden bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl px-4 py-3 text-sm"
+            ></div>
+
+            <!-- Button -->
+            <button
+              type="submit"
+              class="login-btn w-full bg-gradient-to-r from-[#D4AF37] to-[#F5D76E] text-black font-bold py-3.5 rounded-xl mt-2"
+            >
+              Sign In
+              <span class="ml-1">↗</span>
+            </button>
+          </form>
+
+          <!-- Security -->
+          <div class="mt-7 pt-6 border-t border-white/5">
+            <div
+              class="flex items-center justify-center gap-2 text-gray-600 text-xs"
+            >
+              <span class="text-gold">●</span>
+
+              Secure Admin Access
+
+              <span>•</span>
+
+              V Marketing Lahore
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-7">
+          <p class="text-xs text-gray-600">
+            © <span id="year"></span> V Marketing Lahore. All rights reserved.
+          </p>
+
+          <a
+            href="../index.html"
+            class="inline-block mt-3 text-xs text-gray-500 hover:text-gold transition"
+          >
+            ← Back to Website
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Current Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Show / Hide Password
+      const passwordInput = document.getElementById("password");
+      const togglePassword = document.getElementById("togglePassword");
+
+      togglePassword.addEventListener("click", () => {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePassword.textContent = "🙈";
+        } else {
+          passwordInput.type = "password";
+          togglePassword.textContent = "👁";
+        }
+      });
+
+      const loginForm = document.getElementById("loginForm");
+      const errorMessage = document.getElementById("errorMessage");
+
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        errorMessage.classList.add("hidden");
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (!email || !password) {
+          errorMessage.textContent = "Please enter your email and password.";
+
+          errorMessage.classList.remove("hidden");
+
+          return;
+        }
+
+        try {
+          const response = await fetch("/api/admin/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || "Login failed");
+          }
+
+          sessionStorage.setItem("adminAuthenticated", "true");
+          window.location.href = "dashboard.html";
+        } catch (error) {
+          errorMessage.textContent = error.message;
+          errorMessage.classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
+```

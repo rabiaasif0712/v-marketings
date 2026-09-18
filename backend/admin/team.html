@@ -1,0 +1,907 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Team Members | V Marketing Lahore</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .heading {
+      font-family: 'Playfair Display', serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+    }
+
+    .gold {
+      color: #D4AF37;
+    }
+
+    .gold-bg {
+      background: #D4AF37;
+    }
+
+    .gold-border {
+      border-color: rgba(212, 175, 55, 0.35);
+    }
+
+    .sidebar {
+      background: #080808;
+      border-right: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-item {
+      transition: 0.3s ease;
+    }
+
+    .nav-item:hover,
+    .nav-active {
+      background: rgba(212, 175, 55, 0.12);
+      color: #D4AF37;
+      transform: translateX(4px);
+    }
+
+    .team-card {
+      transition: all 0.35s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.08);
+    }
+
+    .btn-gold {
+      background: #D4AF37;
+      color: #050505;
+      transition: 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: #F5D76E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .input {
+      width: 100%;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 10px;
+      padding: 12px 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input:focus {
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+    }
+
+    .modal {
+      display: none;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(7px);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .avatar {
+      background: linear-gradient(135deg, #D4AF37, #8f7620);
+      color: #050505;
+    }
+
+    @media(max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -280px;
+        z-index: 50;
+        width: 260px;
+        transition: 0.3s;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .main-content {
+        margin-left: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar fixed top-0 left-0 h-screen w-64 p-5 z-40">
+
+    <div class="flex items-center justify-between mb-10">
+      <div>
+        <h1 class="heading text-2xl font-bold">
+          V <span class="gold">Marketing</span>
+        </h1>
+
+        <p class="text-xs text-gray-500 mt-1">
+          Lahore • Admin Panel
+        </p>
+      </div>
+
+      <button onclick="closeSidebar()" class="md:hidden text-gray-400 text-xl">
+        ✕
+      </button>
+    </div>
+
+    <nav class="space-y-2">
+
+      <a href="dashboard.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>▣</span>
+        Dashboard
+      </a>
+
+      <a href="inquiries.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>✉</span>
+        Inquiries
+      </a>
+
+      <a href="services.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>◆</span>
+        Services
+      </a>
+
+      <a href="team.html"
+         class="nav-item nav-active flex items-center gap-3 px-4 py-3 rounded-lg">
+        <span>♟</span>
+        Team Members
+      </a>
+
+      <a href="settings.html"
+         class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+        <span>⚙</span>
+        Settings
+      </a>
+
+      <div class="pt-6">
+        <a href="../index.html"
+           class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300">
+          <span>↗</span>
+          View Website
+        </a>
+
+        <a href="login.html"
+           class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-red-400">
+          <span>⇥</span>
+          Logout
+        </a>
+      </div>
+
+    </nav>
+
+    <div class="absolute bottom-5 left-5 right-5">
+      <div class="border gold-border rounded-xl p-4">
+        <p class="text-xs text-gray-500">
+          Admin Panel
+        </p>
+
+        <p class="text-sm font-semibold mt-1">
+          V Marketing Lahore
+        </p>
+
+        <div class="flex items-center gap-2 mt-3">
+          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+          <span class="text-xs text-gray-500">
+            System Online
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="main-content ml-64 min-h-screen">
+
+    <!-- TOPBAR -->
+    <header class="border-b border-white/10 px-6 md:px-8 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-4">
+
+        <button onclick="openSidebar()" class="md:hidden text-2xl">
+          ☰
+        </button>
+
+        <div>
+          <h2 class="heading text-2xl md:text-3xl font-bold">
+            Team Members
+          </h2>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Manage your agency team
+          </p>
+        </div>
+
+      </div>
+
+      <button onclick="openModal()"
+              class="btn-gold px-5 py-3 rounded-lg font-semibold text-sm">
+        + Add Member
+      </button>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <section class="p-6 md:p-8">
+
+      <!-- SUMMARY -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+
+        <div class="card rounded-2xl p-6">
+          <p class="text-sm text-gray-500">
+            Total Members
+          </p>
+
+          <h3 id="totalMembers"
+              class="text-3xl font-bold mt-2">
+            4
+          </h3>
+        </div>
+
+
+        <div class="card rounded-2xl p-6">
+          <p class="text-sm text-gray-500">
+            Active Members
+          </p>
+
+          <h3 id="activeMembers"
+              class="text-3xl font-bold mt-2 gold">
+            3
+          </h3>
+        </div>
+
+
+        <div class="card rounded-2xl p-6">
+          <p class="text-sm text-gray-500">
+            Inactive Members
+          </p>
+
+          <h3 id="inactiveMembers"
+              class="text-3xl font-bold mt-2 text-red-400">
+            1
+          </h3>
+        </div>
+
+      </div>
+
+
+      <!-- TEAM GRID -->
+      <div id="teamGrid"
+           class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <!-- MEMBER 1 -->
+        <div class="team-card card rounded-2xl p-6"
+             data-status="active">
+
+          <div class="flex justify-between items-start">
+
+            <div class="avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold">
+              RA
+            </div>
+
+            <span class="status-badge text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400">
+              Active
+            </span>
+
+          </div>
+
+          <h3 class="member-name text-xl font-bold mt-5">
+            Rabia Asif
+          </h3>
+
+          <p class="member-role gold text-sm mt-1">
+            Creative Director
+          </p>
+
+          <p class="member-bio text-gray-500 text-sm mt-4 leading-6">
+            Leads creative campaigns, brand direction and digital experiences.
+          </p>
+
+          <div class="flex gap-2 mt-6">
+
+            <button onclick="editMember(this)"
+                    class="flex-1 border border-white/10 hover:border-yellow-500/40 py-2 rounded-lg text-sm transition">
+              Edit
+            </button>
+
+            <button onclick="deleteMember(this)"
+                    class="px-4 border border-red-500/20 text-red-400 hover:bg-red-500/10 rounded-lg transition">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMBER 2 -->
+        <div class="team-card card rounded-2xl p-6"
+             data-status="active">
+
+          <div class="flex justify-between items-start">
+
+            <div class="avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold">
+              AM
+            </div>
+
+            <span class="status-badge text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400">
+              Active
+            </span>
+
+          </div>
+
+          <h3 class="member-name text-xl font-bold mt-5">
+            Ahmed Malik
+          </h3>
+
+          <p class="member-role gold text-sm mt-1">
+            Marketing Strategist
+          </p>
+
+          <p class="member-bio text-gray-500 text-sm mt-4 leading-6">
+            Develops performance marketing strategies for growing brands.
+          </p>
+
+          <div class="flex gap-2 mt-6">
+
+            <button onclick="editMember(this)"
+                    class="flex-1 border border-white/10 hover:border-yellow-500/40 py-2 rounded-lg text-sm transition">
+              Edit
+            </button>
+
+            <button onclick="deleteMember(this)"
+                    class="px-4 border border-red-500/20 text-red-400 hover:bg-red-500/10 rounded-lg transition">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMBER 3 -->
+        <div class="team-card card rounded-2xl p-6"
+             data-status="active">
+
+          <div class="flex justify-between items-start">
+
+            <div class="avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold">
+              SK
+            </div>
+
+            <span class="status-badge text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400">
+              Active
+            </span>
+
+          </div>
+
+          <h3 class="member-name text-xl font-bold mt-5">
+            Sara Khan
+          </h3>
+
+          <p class="member-role gold text-sm mt-1">
+            SEO Specialist
+          </p>
+
+          <p class="member-bio text-gray-500 text-sm mt-4 leading-6">
+            Handles SEO campaigns, content strategy and organic growth.
+          </p>
+
+          <div class="flex gap-2 mt-6">
+
+            <button onclick="editMember(this)"
+                    class="flex-1 border border-white/10 hover:border-yellow-500/40 py-2 rounded-lg text-sm transition">
+              Edit
+            </button>
+
+            <button onclick="deleteMember(this)"
+                    class="px-4 border border-red-500/20 text-red-400 hover:bg-red-500/10 rounded-lg transition">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEMBER 4 -->
+        <div class="team-card card rounded-2xl p-6"
+             data-status="inactive">
+
+          <div class="flex justify-between items-start">
+
+            <div class="avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold">
+              HK
+            </div>
+
+            <span class="status-badge text-xs px-3 py-1 rounded-full bg-red-500/10 text-red-400">
+              Inactive
+            </span>
+
+          </div>
+
+          <h3 class="member-name text-xl font-bold mt-5">
+            Hamza Khan
+          </h3>
+
+          <p class="member-role gold text-sm mt-1">
+            Web Developer
+          </p>
+
+          <p class="member-bio text-gray-500 text-sm mt-4 leading-6">
+            Builds modern websites and e-commerce experiences for clients.
+          </p>
+
+          <div class="flex gap-2 mt-6">
+
+            <button onclick="editMember(this)"
+                    class="flex-1 border border-white/10 hover:border-yellow-500/40 py-2 rounded-lg text-sm transition">
+              Edit
+            </button>
+
+            <button onclick="deleteMember(this)"
+                    class="px-4 border border-red-500/20 text-red-400 hover:bg-red-500/10 rounded-lg transition">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 px-6 md:px-8 py-6 mt-10">
+
+      <div class="flex flex-col md:flex-row justify-between gap-3 text-sm text-gray-500">
+
+        <p>
+          © 2026 V Marketing Lahore. All rights reserved.
+        </p>
+
+        <p>
+          Admin Panel
+        </p>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- ADD MEMBER MODAL -->
+  <div id="memberModal"
+       class="modal fixed inset-0 z-50 items-center justify-center p-5">
+
+    <div class="card w-full max-w-lg rounded-2xl p-6 md:p-8">
+
+      <div class="flex justify-between items-center mb-6">
+
+        <div>
+          <h2 class="heading text-2xl font-bold">
+            Add Team Member
+          </h2>
+
+          <p class="text-sm text-gray-500 mt-1">
+            Add a new member to your team
+          </p>
+        </div>
+
+        <button onclick="closeModal()"
+                class="text-gray-500 hover:text-white text-xl">
+          ✕
+        </button>
+
+      </div>
+
+
+      <form onsubmit="addMember(event)"
+            class="space-y-4">
+
+        <div>
+          <label class="text-sm text-gray-400">
+            Full Name
+          </label>
+
+          <input id="memberName"
+                 type="text"
+                 required
+                 class="input mt-2"
+                 placeholder="Enter member name">
+        </div>
+
+
+        <div>
+          <label class="text-sm text-gray-400">
+            Role
+          </label>
+
+          <input id="memberRole"
+                 type="text"
+                 required
+                 class="input mt-2"
+                 placeholder="e.g. Social Media Manager">
+        </div>
+
+
+        <div>
+          <label class="text-sm text-gray-400">
+            Image URL
+          </label>
+
+          <input id="memberImage"
+                 type="text"
+                 class="input mt-2"
+                 placeholder="https://example.com/image.jpg">
+        </div>
+
+
+        <div>
+          <label class="text-sm text-gray-400">
+            Bio
+          </label>
+
+          <textarea id="memberBio"
+                    rows="4"
+                    class="input mt-2"
+                    placeholder="Short description about member"></textarea>
+        </div>
+
+
+        <div>
+          <label class="text-sm text-gray-400">
+            Status
+          </label>
+
+          <select id="memberStatus"
+                  class="input mt-2">
+
+            <option value="active">
+              Active
+            </option>
+
+            <option value="inactive">
+              Inactive
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="flex gap-3 pt-4">
+
+          <button type="button"
+                  onclick="closeModal()"
+                  class="flex-1 border border-white/10 rounded-lg py-3 hover:border-white/20">
+            Cancel
+          </button>
+
+          <button type="submit"
+                  class="flex-1 btn-gold rounded-lg py-3 font-semibold">
+            Add Member
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    // SIDEBAR
+    function openSidebar() {
+      document.getElementById("sidebar").classList.add("open");
+    }
+
+    function closeSidebar() {
+      document.getElementById("sidebar").classList.remove("open");
+    }
+
+
+    // MODAL
+    function openModal() {
+      document.getElementById("memberModal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("memberModal").classList.remove("show");
+    }
+
+
+    // ADD MEMBER
+    function addMember(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("memberName").value;
+
+      const role =
+        document.getElementById("memberRole").value;
+
+      const image =
+        document.getElementById("memberImage").value;
+
+      const bio =
+        document.getElementById("memberBio").value;
+
+      const status =
+        document.getElementById("memberStatus").value;
+
+
+      const initials =
+        name
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .substring(0, 2)
+        .toUpperCase();
+
+
+      const statusHTML =
+        status === "active"
+        ? `
+          <span class="status-badge text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400">
+            Active
+          </span>
+        `
+        : `
+          <span class="status-badge text-xs px-3 py-1 rounded-full bg-red-500/10 text-red-400">
+            Inactive
+          </span>
+        `;
+
+
+      let avatarHTML;
+
+      if (image.trim() !== "") {
+
+        avatarHTML = `
+          <img
+            src="${image}"
+            class="w-20 h-20 rounded-full object-cover border border-yellow-500/20"
+            alt="${name}"
+          >
+        `;
+
+      } else {
+
+        avatarHTML = `
+          <div class="avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold">
+            ${initials}
+          </div>
+        `;
+
+      }
+
+
+      const card = document.createElement("div");
+
+      card.className =
+        "team-card card rounded-2xl p-6";
+
+      card.dataset.status = status;
+
+
+      card.innerHTML = `
+
+        <div class="flex justify-between items-start">
+
+          ${avatarHTML}
+
+          ${statusHTML}
+
+        </div>
+
+        <h3 class="member-name text-xl font-bold mt-5">
+          ${name}
+        </h3>
+
+        <p class="member-role gold text-sm mt-1">
+          ${role}
+        </p>
+
+        <p class="member-bio text-gray-500 text-sm mt-4 leading-6">
+          ${bio || "Team member at V Marketing Lahore."}
+        </p>
+
+        <div class="flex gap-2 mt-6">
+
+          <button onclick="editMember(this)"
+                  class="flex-1 border border-white/10 hover:border-yellow-500/40 py-2 rounded-lg text-sm transition">
+            Edit
+          </button>
+
+          <button onclick="deleteMember(this)"
+                  class="px-4 border border-red-500/20 text-red-400 hover:bg-red-500/10 rounded-lg transition">
+            Delete
+          </button>
+
+        </div>
+
+      `;
+
+
+      document
+        .getElementById("teamGrid")
+        .appendChild(card);
+
+
+      document.getElementById("memberName").value = "";
+      document.getElementById("memberRole").value = "";
+      document.getElementById("memberImage").value = "";
+      document.getElementById("memberBio").value = "";
+      document.getElementById("memberStatus").value = "active";
+
+
+      closeModal();
+
+      updateStats();
+
+    }
+
+
+    // DELETE
+    function deleteMember(button) {
+
+      const card =
+        button.closest(".team-card");
+
+      const name =
+        card.querySelector(".member-name").textContent.trim();
+
+
+      if (
+        confirm(`Delete ${name} from the team?`)
+      ) {
+
+        card.remove();
+
+        updateStats();
+
+      }
+
+    }
+
+
+    // EDIT
+    function editMember(button) {
+
+      const card =
+        button.closest(".team-card");
+
+      const name =
+        card.querySelector(".member-name").textContent.trim();
+
+      const role =
+        card.querySelector(".member-role").textContent.trim();
+
+      const bio =
+        card.querySelector(".member-bio").textContent.trim();
+
+
+      const newName =
+        prompt("Edit member name:", name);
+
+      if (newName === null) return;
+
+
+      const newRole =
+        prompt("Edit member role:", role);
+
+      if (newRole === null) return;
+
+
+      const newBio =
+        prompt("Edit member bio:", bio);
+
+      if (newBio === null) return;
+
+
+      card.querySelector(".member-name").textContent =
+        newName;
+
+      card.querySelector(".member-role").textContent =
+        newRole;
+
+      card.querySelector(".member-bio").textContent =
+        newBio;
+
+    }
+
+
+    // UPDATE STATS
+    function updateStats() {
+
+      const cards =
+        document.querySelectorAll(".team-card");
+
+
+      let active = 0;
+      let inactive = 0;
+
+
+      cards.forEach(card => {
+
+        if (card.dataset.status === "active") {
+          active++;
+        } else {
+          inactive++;
+        }
+
+      });
+
+
+      document.getElementById("totalMembers")
+        .textContent = cards.length;
+
+      document.getElementById("activeMembers")
+        .textContent = active;
+
+      document.getElementById("inactiveMembers")
+        .textContent = inactive;
+
+    }
+
+
+    // CLOSE MODAL WHEN CLICK OUTSIDE
+    document
+      .getElementById("memberModal")
+      .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+          closeModal();
+        }
+
+      });
+
+
+  </script>
+
+</body>
+</html>
+```

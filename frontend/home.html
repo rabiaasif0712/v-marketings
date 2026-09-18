@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>V Marketing Lahore | E-Commerce Growth Agency</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Theme -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: "#D4AF37",
+              goldLight: "#F5D76E",
+              blackBg: "#050505",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #050505;
+        color: white;
+        font-family: "Inter", sans-serif;
+      }
+
+      .gold-text {
+        background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .grid-bg {
+        background-image: linear-gradient(
+            rgba(212, 175, 55, 0.06) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(212, 175, 55, 0.06) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+
+      .glow {
+        box-shadow: 0 0 80px rgba(212, 175, 55, 0.15);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .float {
+        animation: floating 4s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+        transform: skewX(-20deg);
+        transition: 0.8s;
+      }
+
+      .shine:hover::after {
+        left: 140%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between"
+      >
+        <!-- Logo -->
+
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-11 h-11 rounded-xl bg-gold text-black flex items-center justify-center font-black text-2xl shadow-lg"
+          >
+            V
+          </div>
+
+          <div>
+            <h1 class="font-extrabold tracking-[.2em]">V MARKETING</h1>
+
+            <p class="text-[10px] tracking-[.4em] text-gray-500">LAHORE</p>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="home.html" class="text-gold transition"> Home </a>
+
+          <a href="about.html" class="text-gray-300 hover:text-gold transition">
+            About
+          </a>
+
+          <a
+            href="services.html"
+            class="text-gray-300 hover:text-gold transition"
+          >
+            Services
+          </a>
+
+          <a
+            href="contact.html"
+            class="text-gray-300 hover:text-gold transition"
+          >
+            Contact
+          </a>
+
+          <a
+            href="contact.html"
+            class="bg-gold text-black px-6 py-3 rounded-full font-bold hover:bg-goldLight hover:scale-105 transition"
+          >
+            Let's Talk ↗
+          </a>
+        </div>
+
+        <!-- Mobile Button -->
+
+        <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+      </nav>
+
+      <!-- Mobile Menu -->
+
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-black border-t border-white/10 px-5 py-6"
+      >
+        <div class="flex flex-col gap-5">
+          <a href="index.html" class="text-gold"> Home </a>
+
+          <a href="about.html" class="text-gray-300"> About </a>
+
+          <a href="services.html" class="text-gray-300"> Services </a>
+
+          <a href="contact.html" class="text-gray-300"> Contact </a>
+
+          <a
+            href="contact.html"
+            class="bg-gold text-black text-center py-3 rounded-full font-bold"
+          >
+            Let's Talk
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section
+      class="min-h-screen grid-bg flex items-center pt-28 pb-20 relative overflow-hidden"
+    >
+      <!-- Glow -->
+
+      <div
+        class="absolute w-96 h-96 bg-gold/10 rounded-full blur-[130px] -top-20 right-0"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-16 items-center"
+      >
+        <!-- Hero Content -->
+
+        <div class="reveal">
+          <div
+            class="inline-flex border border-gold/30 bg-gold/5 text-gold px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase"
+          >
+            Lahore's E-Commerce Growth Partner
+          </div>
+
+          <h1
+            class="mt-7 text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight"
+          >
+            We make brands
+
+            <span class="gold-text font-serif italic"> impossible </span>
+
+            to ignore.
+          </h1>
+
+          <p class="mt-7 text-lg text-gray-400 max-w-xl leading-8">
+            Performance marketing, creative strategy and conversion-focused
+            websites built to help ambitious e-commerce brands grow faster.
+          </p>
+
+          <!-- Buttons -->
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a
+              href="contact.html"
+              class="shine bg-gold text-black px-7 py-4 rounded-full font-extrabold hover:bg-goldLight hover:scale-105 transition"
+            >
+              Start Growing ↗
+            </a>
+
+            <a
+              href="services.html"
+              class="px-7 py-4 rounded-full border border-white/15 text-white hover:border-gold hover:text-gold transition"
+            >
+              Explore Services
+            </a>
+          </div>
+
+          <!-- Stats -->
+
+          <div class="mt-12 flex flex-wrap gap-10">
+            <div>
+              <h3 class="text-3xl font-bold">3x+</h3>
+
+              <p class="text-gray-500 text-sm">ROAS Focus</p>
+            </div>
+
+            <div>
+              <h3 class="text-3xl font-bold">50+</h3>
+
+              <p class="text-gray-500 text-sm">Campaigns</p>
+            </div>
+
+            <div>
+              <h3 class="text-3xl font-bold">24/7</h3>
+
+              <p class="text-gray-500 text-sm">Growth Mindset</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard -->
+
+        <div class="reveal relative">
+          <div
+            class="glow rounded-[2rem] border border-gold/20 bg-white/[.03] p-5"
+          >
+            <div
+              class="rounded-[1.5rem] bg-[#0c0c0c] border border-white/10 p-7"
+            >
+              <div class="flex justify-between">
+                <span class="text-gray-400 text-sm">
+                  Campaign Performance
+                </span>
+
+                <span class="text-gold text-sm"> ● LIVE </span>
+              </div>
+
+              <!-- Chart -->
+
+              <div class="h-64 flex items-end gap-3 mt-10">
+                <div class="w-full bg-gold/20 rounded-t-xl h-[30%]"></div>
+
+                <div class="w-full bg-gold/30 rounded-t-xl h-[45%]"></div>
+
+                <div class="w-full bg-gold/40 rounded-t-xl h-[52%]"></div>
+
+                <div class="w-full bg-gold/50 rounded-t-xl h-[65%]"></div>
+
+                <div class="w-full bg-gold/70 rounded-t-xl h-[78%]"></div>
+
+                <div class="w-full bg-gold rounded-t-xl h-[95%]"></div>
+              </div>
+
+              <div
+                class="border-t border-white/10 mt-7 pt-6 flex justify-between"
+              >
+                <div>
+                  <p class="text-gray-500 text-xs">Revenue</p>
+
+                  <h3 class="text-2xl font-bold">$184.6K</h3>
+                </div>
+
+                <div>
+                  <p class="text-gray-500 text-xs">Growth</p>
+
+                  <h3 class="text-2xl font-bold text-gold">+68.4%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Card -->
+
+          <div
+            class="float absolute -bottom-6 -left-5 md:-left-10 bg-gold text-black rounded-2xl p-5 shadow-2xl"
+          >
+            <p class="text-xs font-bold uppercase tracking-widest">
+              Conversion
+            </p>
+
+            <h3 class="text-3xl font-black">+42%</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKETING STRATEGY ================= -->
+
+    <section class="py-24 bg-[#080808]">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Our Approach
+          </p>
+
+          <h2 class="mt-4 text-4xl md:text-5xl font-extrabold">
+            Marketing strategy that
+
+            <span class="gold-text"> moves numbers. </span>
+          </h2>
+
+          <p class="mt-5 text-gray-400 leading-7">
+            We combine sharp positioning, creative that stops the scroll and
+            data-driven media buying to create a complete growth engine.
+          </p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-5">
+          <!-- Card 1 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-3xl"> 01 </span>
+
+            <h3 class="mt-14 text-2xl font-bold">Discover</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              Understand your audience, offer, competitors and numbers before we
+              spend a single rupee.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-3xl"> 02 </span>
+
+            <h3 class="mt-14 text-2xl font-bold">Build</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              Build high-converting creative, landing experiences and campaigns
+              around your customer journey.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+
+          <div
+            class="reveal shine border border-white/10 rounded-3xl p-8 hover:border-gold/50 hover:-translate-y-2 transition"
+          >
+            <span class="text-gold text-3xl"> 03 </span>
+
+            <h3 class="mt-14 text-2xl font-bold">Scale</h3>
+
+            <p class="mt-4 text-gray-400 leading-7">
+              Measure what matters, kill weak ideas and scale the winners with
+              disciplined experimentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOST TRAFFIC ================= -->
+
+    <section class="py-24">
+      <div
+        class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-16 items-center"
+      >
+        <div class="reveal">
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Traffic That Converts
+          </p>
+
+          <h2 class="mt-4 text-4xl md:text-6xl font-extrabold">
+            Boost your website
+
+            <span class="gold-text"> traffic. </span>
+          </h2>
+
+          <p class="mt-6 text-gray-400 leading-8">
+            More visitors mean nothing if they don't buy. We build acquisition
+            systems around intent, creative testing and conversion optimization.
+          </p>
+
+          <div class="mt-8 space-y-4 text-gray-300">
+            <p>✓ Meta & Google Ads</p>
+
+            <p>✓ SEO & Content Strategy</p>
+
+            <p>✓ Landing Page Optimization</p>
+
+            <p>✓ Retargeting & Retention</p>
+          </div>
+        </div>
+
+        <!-- Stats Boxes -->
+
+        <div class="reveal grid grid-cols-2 gap-4">
+          <div class="rounded-3xl border border-white/10 bg-white/[.03] p-7">
+            <span class="text-4xl"> ↗ </span>
+
+            <h3 class="text-4xl font-bold mt-10">68%</h3>
+
+            <p class="text-gray-500 mt-2">Traffic Growth</p>
+          </div>
+
+          <div class="rounded-3xl bg-gold text-black p-7 mt-8">
+            <span class="text-4xl"> ◎ </span>
+
+            <h3 class="text-4xl font-bold mt-10">2.8x</h3>
+
+            <p class="mt-2 opacity-70">Conversion Focus</p>
+          </div>
+
+          <div
+            class="rounded-3xl border border-white/10 bg-white/[.03] p-7 -mt-4"
+          >
+            <span class="text-4xl"> ⌁ </span>
+
+            <h3 class="text-4xl font-bold mt-10">24+</h3>
+
+            <p class="text-gray-500 mt-2">Creative Tests</p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/[.03] p-7">
+            <span class="text-4xl"> ◈ </span>
+
+            <h3 class="text-4xl font-bold mt-10">360°</h3>
+
+            <p class="text-gray-500 mt-2">Growth View</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY US ================= -->
+
+    <section class="py-24 bg-[#080808]">
+      <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto">
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Why V Marketing
+          </p>
+
+          <h2 class="mt-4 text-4xl md:text-5xl font-extrabold">
+            Not just an agency.
+
+            <span class="gold-text"> Your growth team. </span>
+          </h2>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-4 gap-4">
+          <div
+            class="reveal p-7 rounded-2xl border border-white/10 hover:bg-gold hover:text-black transition"
+          >
+            <h3 class="font-bold text-lg">Strategy First</h3>
+
+            <p class="mt-3 text-sm opacity-60">
+              Every campaign starts with a clear business objective.
+            </p>
+          </div>
+
+          <div
+            class="reveal p-7 rounded-2xl border border-white/10 hover:bg-gold hover:text-black transition"
+          >
+            <h3 class="font-bold text-lg">Creative Obsessed</h3>
+
+            <p class="mt-3 text-sm opacity-60">
+              Scroll-stopping concepts made for your audience.
+            </p>
+          </div>
+
+          <div
+            class="reveal p-7 rounded-2xl border border-white/10 hover:bg-gold hover:text-black transition"
+          >
+            <h3 class="font-bold text-lg">Data Led</h3>
+
+            <p class="mt-3 text-sm opacity-60">
+              Decisions based on signals, not assumptions.
+            </p>
+          </div>
+
+          <div
+            class="reveal p-7 rounded-2xl border border-white/10 hover:bg-gold hover:text-black transition"
+          >
+            <h3 class="font-bold text-lg">Built To Scale</h3>
+
+            <p class="mt-3 text-sm opacity-60">
+              Systems designed for your next stage of growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+
+    <section class="py-24">
+      <div class="max-w-5xl mx-auto px-5 text-center reveal">
+        <div
+          class="rounded-[2rem] border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-10 md:p-16"
+        >
+          <p class="text-gold uppercase tracking-[.3em] text-xs font-bold">
+            Ready When You Are
+          </p>
+
+          <h2 class="mt-5 text-4xl md:text-6xl font-extrabold">
+            Let's turn your store into a
+
+            <span class="gold-text"> growth machine. </span>
+          </h2>
+
+          <p class="mt-5 text-gray-400">
+            Tell us where you are today. We'll help map where you could go next.
+          </p>
+
+          <a
+            href="contact.html"
+            class="inline-block mt-8 bg-gold text-black px-8 py-4 rounded-full font-extrabold hover:bg-goldLight hover:scale-105 transition"
+          >
+            Book A Strategy Call ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="border-t border-white/10 bg-black">
+      <div
+        class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-4 gap-10"
+      >
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <div
+              class="w-11 h-11 rounded-xl bg-gold text-black flex items-center justify-center font-black text-xl"
+            >
+              V
+            </div>
+
+            <b class="tracking-widest"> V MARKETING </b>
+          </div>
+
+          <p class="text-gray-400 max-w-md leading-7">
+            A Lahore-based digital marketing agency helping e-commerce brands
+            turn attention into revenue through strategy, creative and
+            performance marketing.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-5">Explore</h3>
+
+          <div class="space-y-3 text-gray-400">
+            <a href="index.html" class="block hover:text-gold"> Home </a>
+
+            <a href="about.html" class="block hover:text-gold"> About </a>
+
+            <a href="services.html" class="block hover:text-gold"> Services </a>
+
+            <a href="contact.html" class="block hover:text-gold"> Contact </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-5">Contact</h3>
+
+          <div class="space-y-3 text-gray-400">
+            <p>Lahore, Pakistan</p>
+
+            <p>hello@vmarketing.pk</p>
+
+            <p>+92 300 1234567</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-white/10 py-5 text-center text-sm text-gray-500"
+      >
+        © <span id="year"></span>
+        V Marketing Lahore. All Rights Reserved.
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      // Mobile Menu
+
+      const menuBtn = document.getElementById("menuBtn");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Scroll Animation
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => {
+        observer.observe(element);
+      });
+
+      // Current Year
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

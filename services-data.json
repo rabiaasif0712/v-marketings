@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Performance Marketing",
+    "description": "Paid campaigns designed to bring qualified traffic, leads and sales while keeping performance measurable.",
+    "icon": "◈",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Social Media Marketing",
+    "description": "Strategic content and social campaigns that make your brand more visible, engaging and memorable.",
+    "icon": "◎",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "name": "SEO & Content",
+    "description": "Search-focused content and SEO systems that help your business become easier to discover organically.",
+    "icon": "⌁",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "name": "E-Commerce.",
+    "description": "Conversion-focused strategies that help online stores attract customers.",
+    "icon": "□",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "name": "Brand Strategy",
+    "description": "Positioning, messaging and creative direction that help your brand stand apart from the competition.",
+    "icon": "✦",
+    "status": "active"
+  },
+  {
+    "id": 6,
+    "name": "Complete Growth Strategy",
+    "description": "A complete digital growth system combining strategy, content, advertising and continuous optimization.",
+    "icon": "↗",
+    "status": "active"
+  },
+  {
+    "id": 1789640013968,
+    "name": "social media",
+    "description": "### Social Media Marketing\n\nBuild a stronger online presence with strategic social media marketing that connects your brand with the right audience. We create engaging content, manage your social platforms, run targeted campaigns, and track performance to increase **reach, engagement, leads, and brand awareness**.",
+    "icon": "✦",
+    "status": "inactive"
+  },
+  {
+    "id": 1789643289046,
+    "name": "social",
+    "description": "hhhhhhhhhhahashaiai",
+    "icon": "✦",
+    "status": "active"
+  }
+]
